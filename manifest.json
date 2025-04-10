@@ -27,8 +27,14 @@
       "js": [
         "js/content_freelancer.js"
       ],
-      "css": [
-        "css/style.css"
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://chatgpt.com/*"
+      ],
+      "js": [
+        "js/content_chatgpt.js"
       ],
       "run_at": "document_idle"
     }
