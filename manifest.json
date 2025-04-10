@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "Freelance ChatGPT Web Response Extension",
+  "version": "1.0",
+  "description": "Analyze client requirements and send prompts to ChatGPT web; then post the response in the response tab",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_title": "Freelance ChatGPT Web Response Extension",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
+
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Web Automation",
+  "version": "1.0",
+  "description": "Send prompts to ChatGPT web and display the response in a dialog.",
+  "permissions": ["tabs", "scripting", "storage"],
+  "host_permissions": ["https://chat.openai.com/*"],
+  "action": {
+    "default_title": "ChatGPT Web Automation",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*"],
+      "js": ["js/content.js"],
+      "css": ["css/style.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

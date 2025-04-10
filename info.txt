@@ -1,0 +1,28 @@
+Key & Description
+
+- manifest_version	
+Required. Must be 3 for new extensions.
+
+- name	
+The name of your extension.
+
+- version	
+Version number you set.
+
+- description	
+Shown on the Chrome Web Store.
+
+- content_scripts	
+Injected scripts that run in web pages.
+
+- matches	
+Which URLs it runs on — here it's <all_urls> (any site).
+
+- js	
+The JavaScript file to inject.
+
+- run_at	
+When to inject (document_idle = after page fully loads).
+
+- permissions	
+None needed for this simple version.
