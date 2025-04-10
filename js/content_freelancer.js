@@ -1,9 +1,16 @@
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-    if (msg.action === "extractRequirement") {
-        const descriptionElement = document.querySelector(".ProjectDetails-description").innerText; //document.querySelector('[data-cy="project-view-description"]');
-        const text = descriptionElement?.innerText?.trim() || "No requirement found";
-        sendResponse({ requirement: text });
-    }
+console.log("content_freelancer.js loaded");
 
-    return true;
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg.action === "extractRequirement") {
+    console.log("Received extractRequirement message");
+
+    // EXACT CORRECT SELECTOR FROM YOUR SCREENSHOT:
+    const element = document.querySelector("div.ProjectDescription span");
+    const text = element?.innerText?.trim() || "No requirement found";
+
+    console.log("Extracted project description:", text);
+    sendResponse({ requirement: text });
+  }
+
+  return true;
 });
