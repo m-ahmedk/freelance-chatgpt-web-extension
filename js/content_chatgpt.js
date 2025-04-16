@@ -1,0 +1,1 @@
+console.log("content_chatgpt.js loaded");
