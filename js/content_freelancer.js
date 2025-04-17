@@ -11,5 +11,14 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     sendResponse({ requirement: text });
   }
 
+  if (msg.action === "insertProposal") {
+    const textarea = document.querySelector('textarea[placeholder*="best candidate"]');
+    if (textarea) {
+        textarea.value = msg.response;
+        textarea.dispatchEvent(new Event("input", { bubbles: true }));
+        console.log("Proposal entered in the text area!");
+    }
+  }
+
   return true;
 });
